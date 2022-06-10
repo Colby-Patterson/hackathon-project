@@ -5,7 +5,7 @@ import Book from "./Book";
 import BookForm from "./BookForm";
 import BookShow from "./BookShow";
 import BookWrapper from "./BookWrapper";
-import Movie from "./Movie";
+import Movie from "./Movies/Movies";
 
 export default function App() {
   return (
@@ -19,7 +19,7 @@ export default function App() {
           <Route path="/book/edit/:id" element={<BookForm />} />
           <Route path="/book/:id" element={<BookShow />} />
         </Route>
-        <Route path="/movie" element={<Movie />} />
+        <Route path="/movies" element={<Movie />} />
       </Route>
     </Routes>
   );
