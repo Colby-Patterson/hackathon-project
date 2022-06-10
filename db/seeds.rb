@@ -5,21 +5,21 @@
 require 'faker'
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-Movie.destroy
-Tvshow.destroy
-Book.destroy
+Movie.destroy_all
+Tvshow.destroy_all
+Book.destroy_all
 
 
-15.times
-Movie.create(name:Faker::Movies.name, quote:Faker::Movies.quote, releasedate:Faker::Dates.releasedate)
+15.times do
+Movie.create(name:Faker::Movie.name, quote:Faker::Movie.quote, releasedate:Faker::Date)
 end 
 
-15.times
-Tvshow.create(name:Faker::Tvshows.name, quote:Faker::Tvshows.quote, releasedate:Faker::Dates.releasedate)
+15.times do
+Tvshow.create(name:Faker::TvShows::NewGirl.name, quote:Faker::TvShows::NewGirl.quote, releasedate:Faker::Date)
 end 
 
-15.times
-Book.create(title:Faker::Title.title, author:Faker::Authors.author, genre:Faker::Genre.genre)
+15.times do
+Book.create(title:Faker::Book.title, author:Faker::Book.author, genre:Faker::Book.genre)
 end 
 
 puts 'seeds db'
