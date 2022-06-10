@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from "./Home";
+import Tvshow from "./Tvshow";
+import Book from "./Book";
+import BookForm from "./BookForm";
+import BookShow from "./BookShow";
+import BookWrapper from "./BookWrapper";
+import Movie from "./Movie";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route element={<PageWraper />}>
+        <Route index element={<Home />} />
+        <Route path="/tvshow" element={<Tvshow />} />
+        <Route path="/book" element={<Book />}>
+          <Route index element={<Book />} />
+          <Route path="/book/new" element={<Book />} />
+          <Route path="/book/edit/:id" element={<Book />} />
+          <Route path="/book/:id" element={<Book />} />
+        </Route>
+        <Route path="/movie" element={<Movie />} />
+      </Route>
+    </Routes>
   );
 }
-
-export default App;
