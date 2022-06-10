@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const Model2 = () => {
+const Book = () => {
   return (
     <div>
       <h1>Model 2</h1>

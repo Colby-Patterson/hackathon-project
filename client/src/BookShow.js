@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 
-const Model2Show = () => {
+const BookShow = () => {
   return (
     <div>
-      <h1>Model2Show</h1>
+      <h1>BookShow</h1>
       <Link to="/books">Back to books</Link>
     </div>
   )
