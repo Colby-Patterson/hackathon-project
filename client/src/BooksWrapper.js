@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom"
 
-const Model2Wrapper = () => {
+const BookWrapper = () => {
   return (
     <div className="container">
       <div className="navbar">
