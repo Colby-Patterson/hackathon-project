@@ -20,7 +20,7 @@ const UpdateTvshowForm = (props)=>{
     }
     return (
         <div>
-            <h1>Hero Form</h1>
+            <h1>Tvshow Form</h1>
             <form onSubmit={handleSubmit}>
                 <p>Name</p>
                 <input value={name} onChange={(e)=>setName(e.target.value)}/>
