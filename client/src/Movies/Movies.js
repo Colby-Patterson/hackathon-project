@@ -3,11 +3,12 @@ import { MoviesContext } from "./Moviesprovider"
 
 
 const Movies = () => {
+    const { movies, updateMovies, deleteMovies, addMovies, renderMovies } = useContext(MoviesContext);
     let x = useContext(MoviesContext)
     return (
         <div className='moviecomponent'>
-            <h2>Movies!</h2>
-            <p>let x = useContext(MoviesContext)... x is:{JSON.stringify(x)}</p>
+            <h1>Movies!</h1>
+            {renderMovies()}
         </div>
     )
 }
