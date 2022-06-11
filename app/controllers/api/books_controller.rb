@@ -13,12 +13,16 @@ class Api::BooksController < ApplicationController
     book = Book.new(book_params)
     if book.save
       render json: book
+    else
+      render json: {errors: book.errors.full_messages}, status: 422
     end
   end
 
   def update
     if @book.update(book_params)
       render json: @book
+    else
+      render json: {errors: @book.errors.full_messages}, status: 422
     end
   end
 
