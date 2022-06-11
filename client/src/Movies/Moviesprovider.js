@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import React from 'react'
 import axios from 'axios'
+import UpdateMoviesForm from "./updateMoviesForm";
 
 export const MoviesContext = React.createContext();
 
@@ -10,18 +11,15 @@ const MoviesProvider = (props) => {
     let [movies, setMovies] = useState([])
     let [loading, setLoading] = useState(true)
     let [error, setError] = useState(null)
-    let [show, setShow] = useState(false)
-    let [name, setName] = useState(props.name)
-    let [releasedate, setReleasedate] = useState(props.releasedate)
-    let [quote, setQuote] = useState(props.quote)
+
 
 
     useEffect(() => {
         console.log('movieProvider mountes: getMovies api called')
         getMovies()
-        return () => {
-            console.log('MovieProvider unmounted')
-        }
+        // return () => {
+        // console.log('MovieProvider unmounted')
+        // }
     }, [])
 
     const updateMovies = async (movie) => {
@@ -59,27 +57,14 @@ const MoviesProvider = (props) => {
 
     const deleteMovie = async (id) => {
         try {
-            let res = await axios.destroy(`/api/movies/${id}`)
+            let res = await axios.destroy(`/api/movies/${props.id}`)
             let newMovie = movies.filter((a) => a.id !== res.data.id)
         } catch (err) {
             alert('errors has occured in the deleteMovie')
         }
     }
 
-    const handleSubmit = async (r) => {
-        r.preventDefault();
-        try {
-            let res = await axios.put(`/api/movies/${props.id}`, {
-                name,
-                releasedate,
-                quote,
-            });
-            console.log(res);
-            props.updateMovies(res.data)
-        } catch (err) {
-            console.log(err)
-        }
-    };
+
 
     const renderMovies = () => {
         if (loading) {
@@ -93,30 +78,18 @@ const MoviesProvider = (props) => {
                 <h3>
                     Film's Title: {m.name} </h3> <h3>Release Date: {m.releasedate}</h3>
                 <p>Famous quote from film: {m.quote}</p>
-                <div>
-                    <button onClick={() => setShow(!show)}>Edit</button>
-                    {show && (
-                        <>
-                            <h1>Form</h1>
-                            <form onSubmit={handleSubmit}>
-                                <p>name</p>
-                                <input value={name} onChange={(e) => setName(e.target.value)} />
-                                <p>release date</p>
-                                <input value={releasedate} onChange={(e) => setReleasedate(e.target.value)} />
-                                <p>quote</p>
-                                <input value={quote} onChange={(e) => setQuote(e.target.value)} />
-                                <button>Save Changes</button>
-                            </form>
-                        </>
-                    )}
+                <div key={m.id}>
+                    <button onClick={() => deleteMovie(m.id)}>Delete</button>
+                    <UpdateMoviesForm {...m} updateMovies={updateMovies} />
                 </div>
             </div>
             )
-        })
+        }
+        );
     }
 
     return (
-        <MoviesContext.Provider value={{ movies, deleteMovie, updateMovies, addMovie, renderMovies }}>
+        <MoviesContext.Provider value={{ renderMovies }}>
             {props.children}
         </MoviesContext.Provider>
 

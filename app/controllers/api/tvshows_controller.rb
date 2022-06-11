@@ -43,7 +43,7 @@ private
   end
 
   def tvshow_params 
-    params.require(:tvshow).permit(:name,:qoute,:releasedate)
+    params.require(:tvshow).permit(:name,:quote,:releasedate)
   end
 end
 

@@ -59,7 +59,7 @@ function Tvshows() {
           <h1>
             {d.name}: 
             <br />
-            "{d.quote}"
+            {d.quote}
             <br />
             {d.releasedate}
           </h1>
