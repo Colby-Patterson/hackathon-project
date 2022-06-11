@@ -48,6 +48,7 @@ const BookForm = () => {
         <input value={author} onChange={(e => setAuthor(e.target.value))} />
         <p>Genre: </p>
         <input value={genre} onChange={(e => setGenre(e.target.value))} />
+        <br />
         <button>Submit</button>
       </form>
       <Link to="/books">Back to books</Link>
