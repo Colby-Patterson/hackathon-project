@@ -1,7 +1,9 @@
 import axios from "axios"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 const Book = ({id, title, author, genre, removeBookFromList})=>{
+  // const [deleteButton, showDeleteButton] = useState(true)
   const deleteBook = async (id) => {
     try {
       await axios.delete(`/api/books/${id}`)
@@ -13,7 +15,6 @@ const Book = ({id, title, author, genre, removeBookFromList})=>{
 
   return (
     <div>
-      {/* <p>ID: {id}</p> */}
       <p>Title: {title}</p>
       <p>Author: {author}</p>
       <p>Genre: {genre}</p>
