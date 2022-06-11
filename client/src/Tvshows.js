@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 import TvshowForm from "./TvshowForm";
-import UpdatetvshowForm from "./UpdatetvshowForm";
+import UpdateTvshowForm from "./UpdateTvshowForm";
 
 function Tvshows() {
   const [tvshows, setTvshows] = useState(null);
@@ -41,7 +41,7 @@ function Tvshows() {
   };
 
   const updateTvshow = (tvshow) => {
-    let updatedtvshows = tvshows.map((d) => (d.id === tvshow.id ? tvshow : d));
+    let updatedTvshows = tvshows.map((d) => (d.id === tvshow.id ? tvshow : d));
     setTvshows(updatedTvshows);
   };
 
@@ -67,7 +67,7 @@ function Tvshows() {
 
   return (
     <div className="component tvshows">
-      <tvshowForm addtvshow={addtvshow} />
+      <TvshowForm addTvshow={addTvshow} />
       <h1>tvshowes</h1>
       <div>{renderTvshows()}</div>
     </div>
