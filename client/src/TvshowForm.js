@@ -19,7 +19,7 @@ const TvshowForm = (props) => {
 
   return (
     <div>
-      <h1>New Tv Show Form</h1>
+      <h1>New New Girl Quote</h1>
       <form onSubmit={handleSubmit}>
         <p>Name</p>
         <input value={name} onChange={(e)=>setName(e.target.value)} />

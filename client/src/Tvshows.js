@@ -13,7 +13,7 @@ function Tvshows() {
     getTvshows();
   }, []);
 
-  const addTvshow = (tvshow) => {
+  const addTvshow = async (tvshow) => {
     setTvshows([tvshow, ...tvshows]);
   };
 
