@@ -43,6 +43,7 @@ const MoviesProvider = (props) => {
             setMovies([...movie, res.data])
         } catch (err) {
             alert('error has occured on the addMovie')
+            console.log(err)
         }
     }
 
@@ -62,12 +63,15 @@ const MoviesProvider = (props) => {
 
     const deleteMovie = async (id) => {
         try {
-            let res = await axios.destroy(`/api/movies/${props.id}`)
-            let newMovie = movies.filter((a) => a.id !== res.data.id)
+            let res = await axios.delete(`/api/movies/${id}`)
+            let newMovies = movies.filter((a) => a.id !== res.data.id)
+            setMovies(newMovies)
         } catch (err) {
             alert('errors has occured in the deleteMovie')
+            console.log(err)
         }
     }
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -75,7 +79,7 @@ const MoviesProvider = (props) => {
         try {
             let res = await axios.post("/api/movies", { name, quote, releasedate });
             console.log(res.data);
-            props.addMovie(res.data);
+            addMovie(res.data);
         } catch (err) {
             console.log(err);
         }
@@ -117,7 +121,7 @@ const MoviesProvider = (props) => {
                 <h3>
                     Film's Title: {m.name} </h3> <h3>Release Date: {m.releasedate}</h3>
                 <p>Famous quote from film: {m.quote}</p>
-                <div key={m.id}>
+                <div>
                     <button onClick={() => deleteMovie(m.id)}>Delete</button>
                     <UpdateMoviesForm {...m} updateMovies={updateMovies} />
                 </div>
