@@ -56,13 +56,13 @@ function Tvshows() {
     return tvshows.map((d) => {
       return (
         <div key={d.id} className="tv">
-          <h1>
+          <h2>
             {d.name}: 
             <br />
             {d.quote}
             <br />
             {d.releasedate}
-          </h1>
+          </h2>
           <button onClick={() => deleteTvshow(d.id)}>delete</button>
           <UpdateTvshowForm {...d} updateTvshow={updateTvshow} />
         </div>
