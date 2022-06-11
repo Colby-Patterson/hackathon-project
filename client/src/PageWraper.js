@@ -5,7 +5,7 @@ const PageWraper = () => {
     <div className="app-container">
       <div className="navbar">
         <Link to="/">Home</Link>
-        <Link to="/tvshow">Tvshow</Link>
+        <Link to="/tvshows">Tvshow</Link>
         <Link to="/books">Books</Link>
         <Link to="/movies">Movies</Link>
       </div>

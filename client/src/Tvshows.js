@@ -67,7 +67,7 @@ function Tvshows() {
 
   return (
     <div className="component tvshows">
-      <tvshowForm addTvshow={addTvshow} />
+      <TvshowForm addTvshow={addTvshow} />
       <h1>tvshowes</h1>
       <div>{renderTvshows()}</div>
     </div>
