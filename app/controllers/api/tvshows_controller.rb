@@ -2,8 +2,8 @@ class Api::TvshowsController < ApplicationController
   before_action :set_tvshow, only:[:show, :update, :destroy]
 
 def index 
-  tvshows=Tvshow.all
-  render json: tvshows
+  #tvshows=Tvshow.all
+  render json: Tvshow.all
 end
 
 def show
@@ -15,7 +15,7 @@ def create
   if @tvshow.save
     render json: @tvshow
   else
-    render json:{ @tvshow.errors.full_messages,status:422}
+    render json:{ errors: @tvshow.errors.full_messages,status:422}
  end
 end
 
