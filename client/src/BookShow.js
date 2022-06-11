@@ -8,3 +8,5 @@ const BookShow = () => {
     </div>
   )
 }
+
+export default BookShow
