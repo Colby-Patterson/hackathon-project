@@ -1,8 +1,16 @@
-export default function Home() {
+import { useContext } from "react"
+import { MoviesContext } from "./Movies/Moviesprovider"
+
+const Home = () => {
+  const { movies, updateMovies, deleteMovies, addMovies } = useContext(MoviesContext);
+
   return (
-    <div>
-      <h1>Home</h1>
-      <p>What we are doin in our app</p>
+    <div className='moviescomponent'>
+      <h2>home</h2>
+      <p>{JSON.stringify(movies)}</p>
+
     </div>
-  );
+
+  )
 }
+export default Home;
