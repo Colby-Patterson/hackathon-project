@@ -18,7 +18,7 @@ const Book = ({id, title, author, genre, removeBookFromList})=>{
       <p>Author: {author}</p>
       <p>Genre: {genre}</p>
       <Link to={`/books/edit/${id}`}>Update Book</Link>
-      {/* <Link to="/book/1">Show Book1</Link> */}
+      <Link to={`/books/${id}`}>Show Book</Link>
       <button onClick={()=> deleteBook(id)}>Delete Book</button>
     </div>
   )
