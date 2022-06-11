@@ -1,9 +1,48 @@
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import axios from 'axios'
+import Book from "./Book"
 
-const Book = () => {
+const Books = () => {
+  const [books, setBooks] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(()=>{
+    getBooks()
+  }, [])
+  
+  const getBooks = async () =>{
+    try {
+      let res = await axios.get('/api/books')
+      setBooks(res.data)
+    } catch(err) {
+      alert("Error has occured")
+    }
+  }
+
+  const removeBookFromList = (id)=>{
+    let newBooks = books.filter(b=> b.id !== id)
+    setBooks(newBooks)
+  }
+
+  // const deleteBook = async (id) => {
+  //   try {
+  //     let res = await axios.delete(`/api/books/${id}`)
+  //     newBooks = books.filter(b=> b.id !== res.data.id)
+  //     setBooks(newBooks)
+  //   } catch(err) {
+  //     alert("Error has occured")
+  //   }
+  // }
+
+  const renderBooks = ()=>{
+    return books.map(b=> <Book removeBookFromList={removeBookFromList} key={b.id} {...b} />)
+  }
+
   return (
     <div>
-      <h1>Model 2</h1>
+      <h1>Books</h1>
+      {renderBooks()}
       <Link to="/book/edit/1">Update Book1</Link>
       <Link to="/book/1">Show Book1</Link>
       <hr />
@@ -12,3 +51,5 @@ const Book = () => {
     </div>
   )
 }
+
+export default Books

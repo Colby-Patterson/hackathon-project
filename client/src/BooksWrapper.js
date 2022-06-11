@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom"
 
-const BookWrapper = () => {
+const BooksWrapper = () => {
   return (
     <div className="container">
       <div className="navbar">
@@ -14,4 +14,4 @@ const BookWrapper = () => {
   )
 }
 
-export default BookWrapper
+export default BooksWrapper
