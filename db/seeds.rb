@@ -11,11 +11,11 @@ Book.destroy_all
 
 
 15.times do
-Movie.create(name:Faker::Movie.name, quote:Faker::Movie.quote, releasedate:Faker::Date)
+Movie.create(name:Faker::Movie.title, quote:Faker::Movie.quote, releasedate:Faker::Date.between(from: '2014-09-23', to: '2014-09-25'))
 end 
 
 15.times do
-Tvshow.create(name:Faker::TvShows::NewGirl.name, quote:Faker::TvShows::NewGirl.quote, releasedate:Faker::Date)
+Tvshow.create(name:Faker::TvShows::NewGirl.character, quote:Faker::TvShows::NewGirl.quote, releasedate:Faker::Date.between(from: '1990-09-23', to: '2022-09-25'))
 end 
 
 15.times do
