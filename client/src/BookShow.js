@@ -15,13 +15,18 @@ const BookShow = () => {
   const getBook = async () => {
     try {
       let res = await axios.get(`/api/books/${id}`)
+      setLoading(false)
       setBook(res.data)
     } catch(err) {
+      setLoading(false)
       alert("Error has occured")
     }
   }
 
   const renderBook = () => {
+    if(loading) {
+      return <p>Loading Book</p>
+    }
     return (
       <Book {...book} />
     )

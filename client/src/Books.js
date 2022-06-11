@@ -15,7 +15,9 @@ const Books = () => {
     try {
       let res = await axios.get('/api/books')
       setBooks(res.data)
+      setLoading(false)
     } catch(err) {
+      setLoading(false)
       alert("Error has occured")
     }
   }
@@ -26,6 +28,10 @@ const Books = () => {
   }
 
   const renderBooks = ()=>{
+    if(loading){
+      return <p>Loading Books</p>
+    }
+    
     return books.map(b=> <Book removeBookFromList={removeBookFromList} key={b.id} {...b} />)
   }
 
