@@ -10,15 +10,15 @@ Tvshow.destroy_all
 Book.destroy_all
 
 
-15.times do
+25.times do
 Movie.create(name:Faker::Movie.title, quote:Faker::Movie.quote, releasedate:Faker::Date.between(from: '1990-09-23', to: '2022-09-25'))
 end 
 
-15.times do
+25.times do
 Tvshow.create(name:Faker::TvShows::NewGirl.character, quote:Faker::TvShows::NewGirl.quote, releasedate:Faker::Date.between(from: '1990-09-23', to: '2022-09-25'))
 end 
 
-15.times do
+25.times do
 Book.create(title:Faker::Book.title, author:Faker::Book.author, genre:Faker::Book.genre)
 end 
 
