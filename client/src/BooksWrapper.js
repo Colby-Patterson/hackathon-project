@@ -5,7 +5,7 @@ const BooksWrapper = () => {
     <div className="container">
       <div className="navbar">
         <Link to="/books">Show all books</Link>
-        {/* <Link to="/books/new">Create new book</Link> */}
+        <Link to="/books/new">Create new book</Link>
       </div>
       <div>
         <Outlet />
