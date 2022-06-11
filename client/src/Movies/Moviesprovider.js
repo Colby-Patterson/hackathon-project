@@ -65,7 +65,7 @@ const MoviesProvider = (props) => {
             console.log(err)
         }
     }
-    
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -82,23 +82,27 @@ const MoviesProvider = (props) => {
     const renderMovieForm = () => {
         return (
             <div className="Formcontainer">
-                <button onClick={() => setShow(!show)}>Add Movie!</button>
-                {show && (
-                    <>
-                        <p>Add movie</p>
-                        <form onSubmit={handleSubmit}>
-                            <p>Title</p>
-                            <input value={name} onChange={(r) => setName(r.target.value)} />
-                            <p>Release Date</p>
-                            <input value={releasedate} onChange={(r) => setReleasedate(r.target.value)} />
-                            <p>Quotes</p>
-                            <input value={quote} onChange={(r) => setQuote(r.target.value)} />
-                            <button>Add movie</button>
-                        </form>
-                    </>
-                )}
+                <div className="formss">
+                    <button onClick={() => setShow(!show)}>Add Movie!</button>
+                    {show && (
+                        <>
+                            <p>You can fill out this form to add a movie.</p>
+                            <form onSubmit={handleSubmit}>
+                                <p>Title</p>
+                                <input value={name} onChange={(r) => setName(r.target.value)} />
+                                <p>Release Date</p>
+                                <input value={releasedate} onChange={(r) => setReleasedate(r.target.value)} />
+                                <p>Quotes</p>
+                                <input value={quote} onChange={(r) => setQuote(r.target.value)} />
+                                <button>Add movie</button>
+                            </form>
+                        </>
+                    )}
+                </div>
             </div>
+
         )
+
     }
 
 
