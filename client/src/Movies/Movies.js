@@ -3,7 +3,7 @@ import { MoviesContext } from "./Moviesprovider"
 
 
 const Movies = () => {
-    const { movies, updateMovies, deleteMovies, addMovies, renderMovies } = useContext(MoviesContext);
+    const { renderMovies } = useContext(MoviesContext);
     let x = useContext(MoviesContext)
     return (
         <div className='moviecomponent'>
