@@ -29,6 +29,7 @@ function Tvshows() {
       setLoading(false);
     }
   };
+  
 
   const deleteTvshow = async (id) => {
     try {
@@ -56,7 +57,11 @@ function Tvshows() {
       return (
         <div key={d.id} className="tv">
           <h1>
-            {d.name}: {d.quote}: {d.releasedate}
+            {d.name}: 
+            <br />
+            "{d.quote}"
+            <br />
+            {d.releasedate}
           </h1>
           <button onClick={() => deleteTvshow(d.id)}>delete</button>
           <UpdateTvshowForm {...d} updateTvshow={updateTvshow} />
@@ -68,7 +73,7 @@ function Tvshows() {
   return (
     <div className="component tvshows">
       <TvshowForm addTvshow={addTvshow} />
-      <h1>tvshowes</h1>
+      <h1>Tv Show New Girl</h1>
       <div>{renderTvshows()}</div>
     </div>
   );

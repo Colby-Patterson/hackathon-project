@@ -1,9 +1,9 @@
 import './App.css';
 import Home from "./Home";
 import Tvshows from "./Tvshows";
-// import Books from "./Books";
-// import BookForm from "./BookForm";
-// import BookShow from "./BookShow";
+import Books from "./Books";
+import BookForm from "./BookForm";
+import BookShow from "./BookShow";
 import BookWrapper from "./BooksWrapper";
 import Movies from "./Movies/Movies";
 import PageWraper from './PageWraper';

@@ -28,10 +28,10 @@ end
 
 def destroy
   render json: @tvshow.destroy
- if @tvshow.destroy
-  render json: @tvshow
- else
- end
+#  if @tvshow.destroy
+#   render json: @tvshow
+#  else
+#  end
 end
   
 
