@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import React from 'react'
 import axios from 'axios'
 import UpdateMoviesForm from "./updateMoviesForm";
+import MovieForm from "./MovieForm";
 
 export const MoviesContext = React.createContext();
 
@@ -11,6 +12,10 @@ const MoviesProvider = (props) => {
     let [movies, setMovies] = useState([])
     let [loading, setLoading] = useState(true)
     let [error, setError] = useState(null)
+    const [name, setName] = useState("")
+    const [releasedate, setReleasedate] = useState("")
+    const [quote, setQuote] = useState("")
+    let [show, setShow] = useState(false)
 
 
 
@@ -64,6 +69,40 @@ const MoviesProvider = (props) => {
         }
     }
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log({ name, quote, releasedate });
+        try {
+            let res = await axios.post("/api/movies", { name, quote, releasedate });
+            console.log(res.data);
+            props.addMovie(res.data);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    const renderMovieForm = () => {
+        return (
+            <div className="Formcontainer">
+                <button onClick={() => setShow(!show)}>Add Movie!</button>
+                {show && (
+                    <>
+                        <p>Add movie</p>
+                        <form onSubmit={handleSubmit}>
+                            <p>Title</p>
+                            <input value={name} onChange={(r) => setName(r.target.value)} />
+                            <p>Release Date</p>
+                            <input value={releasedate} onChange={(r) => setReleasedate(r.target.value)} />
+                            <p>Quotes</p>
+                            <input value={quote} onChange={(r) => setQuote(r.target.value)} />
+                            <button>Add movie</button>
+                        </form>
+                    </>
+                )}
+            </div>
+        )
+    }
+
 
 
     const renderMovies = () => {
@@ -89,7 +128,7 @@ const MoviesProvider = (props) => {
     }
 
     return (
-        <MoviesContext.Provider value={{ renderMovies }}>
+        <MoviesContext.Provider value={{ renderMovies, renderMovieForm }}>
             {props.children}
         </MoviesContext.Provider>
 
