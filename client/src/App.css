@@ -1,3 +1,7 @@
 a{
   margin: 5px;
 }
+.newform{
+  display: flex;
+  justify-content: center;
+}

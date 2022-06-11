@@ -18,7 +18,7 @@ const TvshowForm = (props) => {
   }
 
   return (
-    <div>
+    <div className="newform">
       <h1>New New Girl Quote</h1>
       <form onSubmit={handleSubmit}>
         <p>Name</p>
