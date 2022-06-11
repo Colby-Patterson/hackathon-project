@@ -7,7 +7,7 @@ const PageWraper = () => {
         <Link to="/">Home</Link>
         <Link to="/tvshow">Tvshow</Link>
         <Link to="/books">Books</Link>
-        <Link to="/movie">Movie</Link>
+        <Link to="/movies">Movie</Link>
       </div>
       <div>
         <Outlet />
