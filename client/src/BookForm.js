@@ -1,18 +1,41 @@
 import axios from "axios"
-import { useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { Link, useNavigate, useParams } from "react-router-dom"
 
 const BookForm = () => {
   const {id} = useParams()
+  const nav = useNavigate()
   const [title, setTitle] = useState("")
   const [author, setAuthor] = useState("")
   const [genre, setGenre] = useState("")
+
+  useEffect(()=>{
+    if(id){
+      getBooks()
+    }
+  }, [])
+
+  const getBooks = async ()=>{
+    try {
+    let res = await axios.get(`/api/books/${id}`)
+    setTitle(res.data.title)
+    setAuthor(res.data.author)
+    setGenre(res.data.genre)
+    } catch(err) {
+      alert("Err has occured with get books")
+    }
+  }
+
   
   const handleSubmit = async (e)=>{
     e.preventDefault()
     if(id){
       await axios.put(`/api/books/${id}`, {title, author, genre})
     }
+    else {
+      await axios.post('/api/books', {title, author, genre})
+    }
+    nav("/books")
   }
 
   return(
