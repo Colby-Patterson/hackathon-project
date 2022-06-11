@@ -43,11 +43,11 @@ const Books = () => {
     <div>
       <h1>Books</h1>
       {renderBooks()}
-      <Link to="/book/edit/1">Update Book1</Link>
+      {/* <Link to="/book/edit/1">Update Book1</Link>
       <Link to="/book/1">Show Book1</Link>
       <hr />
       <Link to="/book/edit/2">Update Book2</Link>
-      <Link to="/book/2">Show Book2</Link>
+      <Link to="/book/2">Show Book2</Link> */}
     </div>
   )
 }
