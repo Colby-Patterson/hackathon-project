@@ -40,7 +40,7 @@ const BookForm = () => {
 
   return (
     <div>
-      <h1>Book Form</h1>
+      <h1>{id ? "Update Book" : "Add New Book"}</h1>
       <form onSubmit={handleSubmit}>
         <p>Title: </p>
         <input value={title} onChange={(e => setTitle(e.target.value))} />
