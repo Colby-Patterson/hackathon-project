@@ -15,7 +15,7 @@ Movie.create(name:Faker::Movie.title, quote:Faker::Movie.quote, releasedate:Fake
 end 
 
 15.times do
-    Tvshow.create(name:Faker::TvShows.title, quote:Faker::TvShows::NewGirl.quote, releasedate:Faker::Date.between(from: '1990-09-23', to: '2022-09-25'))
+Tvshow.create(name:Faker::TvShows::NewGirl.character, quote:Faker::TvShows::NewGirl.quote, releasedate:Faker::Date.between(from: '1990-09-23', to: '2022-09-25'))
 end 
 
 15.times do
