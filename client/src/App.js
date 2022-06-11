@@ -15,11 +15,11 @@ export default function App() {
       <Route element={<PageWraper />}>
         <Route index element={<Home />} />
         <Route path="/tvshows" element={<Tvshows />} />
-        <Route path="/books" element={<BookWrapper />}>
-          <Route index element={<Books />} /> 
-          <Route path="/books/new" element={<BookForm />} />
-          <Route path="/books/edit/:id" element={<BookForm />} />
-          <Route path="/books/:id" element={<BookShow />} />
+        <Route path="/book" element={<BookWrapper />}>
+          <Route index element={<Books />} />
+          <Route path="/book/new" element={<BookForm />} /> */
+          <Route path="/book/edit/:id" element={<BookForm />} />
+          <Route path="/book/:id" element={<BookShow />} /> */
         </Route>
         <Route path="/movies" element={<Movies />} />
       </Route>

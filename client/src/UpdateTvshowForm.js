@@ -1,5 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
+import Tvshows from "./Tvshows"
+
 
 const UpdateTvshowForm = (props)=>{
     const [name, setName] = useState(props.name)
@@ -17,10 +19,12 @@ const UpdateTvshowForm = (props)=>{
           console.log(err)
         }
 
-    }
+    } 
+
+    
     return (
         <div>
-            <h1>Hero Form</h1>
+            <h1>Tv Show Form</h1>
             <form onSubmit={handleSubmit}>
                 <p>Name</p>
                 <input value={name} onChange={(e)=>setName(e.target.value)}/>
@@ -32,5 +36,7 @@ const UpdateTvshowForm = (props)=>{
             </form>
         </div>
     )
+   
+    
 }
 export default UpdateTvshowForm
