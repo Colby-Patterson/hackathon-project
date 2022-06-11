@@ -14,7 +14,7 @@ const Book = ({id, title, author, genre, removeBookFromList})=>{
   }
 
   return (
-    <div>
+    <div className="tv">
       <p>Title: {title}</p>
       <p>Author: {author}</p>
       <p>Genre: {genre}</p>
