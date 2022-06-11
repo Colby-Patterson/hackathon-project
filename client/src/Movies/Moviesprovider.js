@@ -117,8 +117,8 @@ const MoviesProvider = (props) => {
         return movies.map((m) => {
             return (<div key={m.id} className='movieCard'>
                 <h3>
-                    Film's Title: {m.name} </h3> <h3>Release Date: {m.releasedate}</h3>
-                <p>Famous quote from film: {m.quote}</p>
+                    <b>Film's Title:</b> {m.name} </h3> <h3><b> Release Date:</b> {m.releasedate}</h3>
+                <p><b>Famous quote from film:</b> {m.quote}</p>
                 <div>
                     <button onClick={() => deleteMovie(m.id)}>Delete</button>
                     <UpdateMoviesForm {...m} updateMovies={updateMovies} />
