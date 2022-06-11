@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 const Book = ({id, title, author, genre, removeBookFromList})=>{
   const deleteBook = async (id) => {
     try {
-      let res = await axios.delete(`/api/books/${id}`)
+      await axios.delete(`/api/books/${id}`)
       removeBookFromList(id)
       } catch(err) {
       alert("Error has occured")
@@ -13,12 +13,14 @@ const Book = ({id, title, author, genre, removeBookFromList})=>{
 
   return (
     <div>
-      <p>ID: {id}</p>
+      {/* <p>ID: {id}</p> */}
       <p>Title: {title}</p>
       <p>Author: {author}</p>
       <p>Genre: {genre}</p>
       <Link to={`/books/edit/${id}`}>Update Book</Link>
+      <br />
       <Link to={`/books/${id}`}>Show Book</Link>
+      <br />
       <button onClick={()=> deleteBook(id)}>Delete Book</button>
     </div>
   )
