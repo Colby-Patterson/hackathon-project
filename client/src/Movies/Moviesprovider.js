@@ -38,13 +38,7 @@ const MoviesProvider = (props) => {
     }
 
     const addMovie = async (movie) => {
-        try {
-            let res = await axios.post(`/api/movies`, movie)
-            setMovies([...movie, res.data])
-        } catch (err) {
-            alert('error has occured on the addMovie')
-            console.log(err)
-        }
+        setMovies([movie, ...movies]);
     }
 
     const getMovies = async () => {
@@ -78,7 +72,7 @@ const MoviesProvider = (props) => {
         console.log({ name, quote, releasedate });
         try {
             let res = await axios.post("/api/movies", { name, quote, releasedate });
-            console.log(res.data);
+            // console.log(res.data);
             addMovie(res.data);
         } catch (err) {
             console.log(err);
