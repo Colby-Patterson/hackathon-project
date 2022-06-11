@@ -8,9 +8,11 @@ import MoviesProvider from './Movies/Moviesprovider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <MoviesProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </MoviesProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
