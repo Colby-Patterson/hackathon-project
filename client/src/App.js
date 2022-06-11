@@ -1,9 +1,9 @@
 import './App.css';
 import Home from "./Home";
 import Tvshows from "./Tvshows";
-// import Books from "./Books";
-// import BookForm from "./BookForm";
-// import BookShow from "./BookShow";
+import Books from "./Books";
+import BookForm from "./BookForm";
+import BookShow from "./BookShow";
 import BookWrapper from "./BooksWrapper";
 import Movies from "./Movies/Movies";
 import PageWraper from './PageWraper';
@@ -16,10 +16,10 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="/tvshows" element={<Tvshows />} />
         <Route path="/book" element={<BookWrapper />}>
-          {/* <Route index element={<Books />} /> */}
-          {/* <Route path="/book/new" element={<BookForm />} />
+          <Route index element={<Books />} />
+          <Route path="/book/new" element={<BookForm />} /> */
           <Route path="/book/edit/:id" element={<BookForm />} />
-          <Route path="/book/:id" element={<BookShow />} /> */}
+          <Route path="/book/:id" element={<BookShow />} /> */
         </Route>
         <Route path="/movies" element={<Movies />} />
       </Route>

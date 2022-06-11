@@ -19,10 +19,11 @@ const TvshowForm = (props) => {
 
   return (
     <div>
-      <h1>Tvshow Form</h1>
+      <h1>Tv Show Form</h1>
       <form onSubmit={handleSubmit}>
         <p>Name</p>
         <input value={name} onChange={(e)=>setName(e.target.value)} />
+        <br />
         <p>Quote</p>
         <input value={quote} onChange={(e)=>setQuote(e.target.value)} />
         <p>Releasedate</p>

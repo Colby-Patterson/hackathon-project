@@ -25,16 +25,6 @@ const Books = () => {
     setBooks(newBooks)
   }
 
-  // const deleteBook = async (id) => {
-  //   try {
-  //     let res = await axios.delete(`/api/books/${id}`)
-  //     newBooks = books.filter(b=> b.id !== res.data.id)
-  //     setBooks(newBooks)
-  //   } catch(err) {
-  //     alert("Error has occured")
-  //   }
-  // }
-
   const renderBooks = ()=>{
     return books.map(b=> <Book removeBookFromList={removeBookFromList} key={b.id} {...b} />)
   }

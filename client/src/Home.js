@@ -2,12 +2,13 @@ import { useContext } from "react"
 import { MoviesContext } from "./Movies/Moviesprovider"
 
 const Home = () => {
-  const { movies, updateMovies, deleteMovies, addMovies } = useContext(MoviesContext);
+  
 
   return (
-    <div className='moviescomponent'>
-      <h2>home</h2>
-      <p>{JSON.stringify(movies)}</p>
+    <div className='home' >
+      <h2>Home</h2>
+      <p>Hi Everybody</p>
+      <p>We created our App to tell you about some entertanment Andrew created tv shows, Colby created books, and Lance created movie </p>
 
     </div>
 
