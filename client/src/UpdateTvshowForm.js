@@ -12,7 +12,7 @@ const UpdateTvshowForm = (props)=>{
     const handleSubmit = async(e)=>{
         e.preventDefault()
         try{
-          let res = await axios.put(`/api/tvshows/${props}`,{name, quote, releasedate})
+          let res = await axios.put(`/api/tvshows/${props.id}`,{name, quote, releasedate})
           console.log(res)
           props.updateTvshow(res.data)
         } catch(err){
